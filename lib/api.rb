@@ -1,14 +1,16 @@
 class Api
 
-def self.get_pokemon_data
+def self.get_pokemon_data(pokemon)
 
-url = "https://pokeapi.co/api/v2/pokemon/gengar/"
+url = "https://pokeapi.co/api/v2/pokemon/#{pokemon}/"
 response = HTTParty.get(url)
-binding.pry
+
+pokemon_data_hash = {name: response["name"], type: response["types"][0]["type"]["name"], id: response["id"], height: response["height"], weight: response["weight"]}
+Location.new(pokemon_data_hash)
 end
 
 
 end
 
-#"https://pokeapi.co/api/v2/type/#{pokemon}/"
-#response["types"][0]["type"]["name"]
+
+#type2: response["types"][1]["type"]["name"],
