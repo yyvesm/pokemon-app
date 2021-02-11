@@ -43,6 +43,25 @@ def user_selection(location)
        puts "That is not an option."
        user_selection(location)
     end
+    main_menu
+end
+
+def main_menu
+    puts "To see another Pokemon's info, enter 1."
+    puts "To exit the program, enter 2."
+    input = gets.strip
+    if input == "1"
+        prompt_for_pokemon
+    elsif input == "2"
+        exit_program
+    else
+        puts "That is not an option."
+        main_menu
+    end
+end
+
+def exit_program
+    abort("Exiting Pokemon App.")
 end
 
 end
