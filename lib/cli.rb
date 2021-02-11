@@ -6,9 +6,16 @@ def welcome
 end
 
 def prompt_for_pokemon
-    puts "Enter Pokemon name."
-    input = gets.strip.downcase
-    new_location = Api.get_pokemon_data(input)
+    new_location = false
+
+    while !new_location
+        puts "Enter Pokemon name."
+        input = gets.strip.downcase
+        new_location = Api.get_pokemon_data(input)
+        if !new_location
+           puts "That Pokemon does not exist."
+        end
+    end
     pokemon_options(new_location)
 end
 
@@ -25,7 +32,7 @@ def user_selection(location)
     input = gets.strip
 
     if input == "1"
-       puts "#{location.name.capitalize}'s type is #{location.type}."
+       puts "#{location.name.capitalize} is a #{location.type} type."
     elsif input == "2"
        puts "#{location.name.capitalize}'s National Pokedex Number is #{location.id}."
     elsif input == "3"
