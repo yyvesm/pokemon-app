@@ -8,6 +8,7 @@ end
 def prompt_for_pokemon
     puts "Enter Pokemon name."
     input = gets.strip
+    Api.get_pokemon_data
 end
 
 
