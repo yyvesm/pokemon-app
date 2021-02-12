@@ -9,7 +9,7 @@ def prompt_for_pokemon
     new_location = false
 
     while !new_location
-        puts "Enter Pokemon name."
+        puts "Enter Pokemon name or ID."
         input = gets.strip.downcase
 
         new_location = Location.find_pokemon(input) || Api.get_pokemon_data(input)
