@@ -1,6 +1,6 @@
 class Location
 
-attr_accessor :name, :type, :id, :height, :weight
+attr_accessor :name, :type, :id, :height, :weight, :pokemon_name
 
 @@all = []
 
@@ -16,6 +16,12 @@ end
 
 def self.all
     @@all
+end
+
+def self.find_pokemon(pokemon)
+    self.all.find do |loc|
+    loc.pokemon_name == pokemon
+    end
 end
 
 end

@@ -11,7 +11,9 @@ def prompt_for_pokemon
     while !new_location
         puts "Enter Pokemon name."
         input = gets.strip.downcase
-        new_location = Api.get_pokemon_data(input)
+
+        new_location = Location.find_pokemon(input) || Api.get_pokemon_data(input)
+        
         if !new_location
            puts "That Pokemon does not exist."
         end

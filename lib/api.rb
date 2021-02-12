@@ -9,7 +9,7 @@ if response["Not Found"]
     return nil 
 end
 
-pokemon_data_hash = {name: response["name"], type: response["types"][0]["type"]["name"], id: response["id"], height: response["height"], weight: response["weight"]}
+pokemon_data_hash = {pokemon_name: pokemon, name: response["name"], type: response["types"][0]["type"]["name"], id: response["id"], height: response["height"], weight: response["weight"]}
 Location.new(pokemon_data_hash)
 end
 
